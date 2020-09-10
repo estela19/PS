@@ -4,6 +4,12 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 #custom
+.vscode/
+CMakeLists.txt
+build/
+boj.*
+compile.txt
+*.exe
 ProblemSolving.*
 baemin*
 
