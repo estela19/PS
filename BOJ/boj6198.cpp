@@ -1,9 +1,10 @@
 #include<iostream>
 #include<algorithm>
+#include<stack>
 
-int N, cnt;
-int build[80001];
-
+int N;
+long long cnt;
+std::stack<int> s;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
@@ -11,17 +12,19 @@ int main(){
 
     std::cin >> N;
 
+   
     for(int i = 0; i < N; i++){
-        std::cin >> build[i];
-    }
+        int tmp;
+        std::cin >> tmp;
 
-    for(int i = 0; i < N; i++){
-        int j = i + 1;
 
-        while(j < N && build[i] > build[j]){
-            cnt++;
-            j++;
+        while (!s.empty() && s.top() <= tmp) {
+            s.pop();
         }
+        s.push(tmp);
+
+        cnt += s.size() - 1;
+
     }
 
     std::cout << cnt;
