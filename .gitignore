@@ -5,7 +5,6 @@
 
 #custom
 .vscode/
-CMakeLists.txt
 build/
 boj.*
 compile.txt
