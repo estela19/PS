@@ -1,7 +1,7 @@
 #include<iostream>
 #include<algorithm>
 
-#define max 2000000
+#define max 1000000
 
 int n, x;
 int num[max + 1];
@@ -18,11 +18,12 @@ int main() {
 
     std::cin >> x;
 
-    for (int i = 1; i < x/2; i++) {
+    for (int i = 1; i < x; i++) {
+        if (i == x - i) continue;
         if (num[i] == 1 && num[x - i] == 1) {
             cnt++;
         }
     }
 
-    std::cout << cnt;
+    std::cout << cnt / 2;
 }

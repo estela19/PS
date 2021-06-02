@@ -57,6 +57,7 @@ int main() {
                     idx[j + 1] = 1;
                 }
             }
+
         }
 /*
         for (int l = 0; l <= n; l++) {
