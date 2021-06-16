@@ -7,7 +7,6 @@
 
 int N, M;
 int prechz;
-int bcnt = 1;
 int sol = 0;
 int board[101][101];
 int visit[101][101];
@@ -33,7 +32,6 @@ int bfs() {
                     visit[y][x] = 1;
 
                     if (board[y][x] == 0) {
-                        bcnt++;
                         q.push(std::make_pair(x, y));
                     }
                     else if (board[y][x] == 1) {
@@ -48,6 +46,16 @@ int bfs() {
     return prechz;
 }
 
+int IsEmpty(){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < M; j++){
+            if(board[i][j] == 1)
+                return false;
+        }
+    }
+    return true;
+}
+
 int main() {
     std::cin >> N >> M;
 
@@ -60,16 +68,14 @@ int main() {
     while (true) {
         bfs();
 
-        int cnt = bcnt + prechz;
-        if (cnt == N * M)   break;
+        if(IsEmpty()) break;
 
         memset(visit, 0, sizeof(visit));
-        bcnt = 1;
         prechz = 0;
         sol++;
     }
 
-    if (sol == 0) std::cout << sol << "\n";
+    if (prechz == 0) std::cout << sol << "\n";
     else std::cout << sol + 1 << "\n";
 
     std::cout << prechz;
